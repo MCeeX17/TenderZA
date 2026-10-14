@@ -1,0 +1,8 @@
+rules_version = '2';
+// No file uploads yet: bidders send certified documents directly to the
+// tendering organisation after being contacted. Everything stays locked.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} { allow read, write: if false; }
+  }
+}
